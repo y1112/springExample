@@ -31,7 +31,6 @@
 </c:if>
 <li>
 <a href="<%=request.getContextPath() %>/member/memberList.do">회원리스트</a>
-<%-- <a href="<c:url value="/member/memberList.do"/>">List</a> --%>
 </li>
 <li>
 	<c:if test="${empty info}">

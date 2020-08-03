@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판 리스트</title>
+<%@ include file="/WEB-INF/views/frame/top.jsp"%>
 
 
 
@@ -16,11 +17,15 @@
 
 <style>
 #container {
-	width: 70%;
+/* 	width: 70%; */
 	margin: 0 auto; /* 가로로 중앙에 배치 */
 	padding-top: 5%; /* 테두리와 내용 사이의 패딩 여백 */
 }
-
+#contentForm {
+/*       width: 70%;
+ */      margin: 0 auto;
+      padding-top: 2%;
+    }
 #list {
 	text-align: center;
 }
@@ -104,13 +109,19 @@ td>img {
 </style>
 </head>
 <body>
-	<div align="center">
-		<h2>게시판 리스트</h2>
-		<hr width="400" color="red" />
+<%@ include file="/WEB-INF/views/frame/sideMenuBar.jsp"%>
 
+
+
+<div id="contentForm" align="center">
+	<hr width="500" color="green">
+	<h1 class="subtitle">게시판 리스트</h1>
+	<hr width="500" color="green">
+
+		<div class="input-group input-group-sm" role="group" aria-label="...">
 		<table class="table table-striped table-bordered table-hover"
 			border="1" cellpadding="0" cellspacing="0" width="500">
-
+			<thead>
 			<tr>
 				<th width="10%">번호</th>
 				<th width="50%">제목</th>
@@ -118,6 +129,8 @@ td>img {
 				<th width="15%">날짜</th>
 				<th width="15%">조회수</th>
 			</tr>
+			</thead>
+			<tbody>
 			<!-- 게시글 목록 가져오기 -->
 			<c:forEach items="${list}" var="vo">
 				<tr>
@@ -131,9 +144,13 @@ td>img {
 			<tr>
 				<td colspan="5" align="center"><a href="writeForm">글쓰기</a></td>
 			</tr>
+			</tbody>
 		</table>
-
+</div>
 	</div>
+	
+	<%@ include file="/WEB-INF/views/frame/bottom.jsp"%>
+	
 </body>
 </html>
 <%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
